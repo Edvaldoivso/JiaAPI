@@ -2,6 +2,8 @@
 const db = require("../db");
 
 module.exports = {
+
+
   buscarTodos: () => {
     return new Promise((aceito, rejeitado) => {
       db.query("SELECT * FROM localcontrolling;", (error, results) => {
@@ -51,4 +53,42 @@ module.exports = {
       );
     });
   },
+
+
+
+
+
+alterar: (id,Base_Name) => {
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        "UPDATE localcontrolling SET  Base_Name = ? WHERE id = ?",
+        [ Base_Name , id],
+        (error, result) => {
+          if (error) {
+            rejeitado(error);
+            aceito(result);
+          }
+        }
+      );
+    });
+  },
+
+
+
+//Exclusão de Dado
+ deletar: (id) => {
+    return new Promise((aceito, rejeitado) => {
+      db.query("DELETE FROM localcontrolling WHERE id = ?" , [id],
+       (error, results) => {
+        if (error) {
+          rejeitado(error);
+          return;
+        }
+         aceito(results);
+      });
+    });
+  }
+
+
+
 };
