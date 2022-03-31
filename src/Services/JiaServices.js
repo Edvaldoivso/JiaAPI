@@ -3,6 +3,7 @@ const db = require("../db");
 
 module.exports = {
 
+//Metodo de Busca geral retornando todos os dados do Banco
 
   buscarTodos: () => {
     return new Promise((aceito, rejeitado) => {
@@ -17,6 +18,9 @@ module.exports = {
     });
   },
 
+
+
+//Metodo de Busca unitario com base em um ID
   buscarUnitario: (id) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
@@ -37,6 +41,9 @@ module.exports = {
     });
   },
 
+
+
+//Metodo de Inclusão de Dados 
   InsertUser: (id, Base_Name, Time_Register, User_Identification, IPadress, Geographic_Coordinates) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
@@ -57,6 +64,7 @@ module.exports = {
 
 
 
+//Metodo de Alteração de Dados com base no ID
 
 alterar: (id,Base_Name) => {
     return new Promise((aceito, rejeitado) => {
@@ -72,6 +80,7 @@ alterar: (id,Base_Name) => {
       );
     });
   },
+
 
 
 
